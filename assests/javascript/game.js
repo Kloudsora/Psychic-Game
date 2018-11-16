@@ -8,18 +8,14 @@ var alreadyguess = [""];
 
 var pcopt = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",];
 
-function getrandomletter() 
+var actual =(function getrandomletter() 
  {
      return pcopt[Math.floor(Math.random() * pcopt.length)];
- } 
-
- var actual = getrandomletter
+ })() 
 
 var guessleft = 9;
 
 console.log(actual);
-
-getrandomletter
 
     document.onkeyup = function(event)              
     {
@@ -36,6 +32,7 @@ getrandomletter
                 wins++;
                 guessleft = 9;
                 alreadyguess = [];
+                getrandomletter();
                 
             }
 
@@ -49,6 +46,7 @@ getrandomletter
             guessleft = 9;
             losses ++;
             alreadyguess = [];
+            getrandomletter();
 
         }
         
